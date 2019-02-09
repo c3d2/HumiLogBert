@@ -1,0 +1,14 @@
+#!/bin/sh
+
+
+DEVCLASS=$1
+DEVNAME=$2
+
+case $DEVCLASS in
+2)
+	mkdir -p /mnt/usb
+	mount /dev/"$DEVNAME"i /mnt/usb &&
+	rsync -r /home/kellerlog /mnt/usb/
+	umount /mnt/usb
+	;;
+esac
